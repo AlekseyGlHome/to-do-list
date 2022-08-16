@@ -1,4 +1,4 @@
-package main.models;
+package main.ru.home.todo.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,11 +19,5 @@ public class ToDoEntity {
     private Integer id;
     private String name;
     private String description;
-
-    public ToDoEntity(ToDoDto toDoDto){
-        setId(toDoDto.getId());
-        setName(toDoDto.getName());
-        setDescription(toDoDto.getDescription());
-    }
 
 }

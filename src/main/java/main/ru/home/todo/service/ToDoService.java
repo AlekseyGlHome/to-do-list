@@ -1,9 +1,8 @@
-package main.service;
+package main.ru.home.todo.service;
 
 import lombok.RequiredArgsConstructor;
-import main.models.ToDoEntity;
-import main.models.ToDoDto;
-import main.repository.ToDoRepository;
+import main.ru.home.todo.models.ToDoDto;
+import main.ru.home.todo.repository.ToDoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -19,12 +18,12 @@ public class ToDoService {
     public Collection<ToDoDto> findAll() {
         return toDoRepository.findAll()
                 .stream()
-                .map(ToDoDto::new)
+                .map(ToDoDto::toDto)
                 .collect(Collectors.toList());
     }
 
     public Optional<ToDoDto> findById(int id) {
-        return toDoRepository.findById(id).map(ToDoDto::new);
+        return toDoRepository.findById(id).map(ToDoDto::toDto);
     }
 
     public void deleteById(int id) {
@@ -33,12 +32,14 @@ public class ToDoService {
 
     public void add(ToDoDto toDoDto) {
 
-        toDoRepository.save(new ToDoEntity(toDoDto));
+//        toDoRepository.save(new ToDoEntity(toDoDto));
+        toDoRepository.save(ToDoDto.toEntity(toDoDto));
     }
 
     public void update(ToDoDto toDoDto) {
         if (toDoRepository.existsById(toDoDto.getId())) {
-            toDoRepository.save(new ToDoEntity(toDoDto));
+//            toDoRepository.save(new ToDoEntity(toDoDto));
+            toDoRepository.save(ToDoDto.toEntity(toDoDto));
         }
     }
 }

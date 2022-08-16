@@ -1,4 +1,4 @@
-package main.models;
+package main.ru.home.todo.models;
 
 
 import lombok.AllArgsConstructor;
@@ -23,9 +23,19 @@ public class ToDoDto {
     @Size(min = 0, max = 255, message = "Количество символов максимум 255")
     private String description;
 
-    public ToDoDto(ToDoEntity toDoEntity) {
-        setId(toDoEntity.getId());
-        setName(toDoEntity.getName());
-        setDescription(toDoEntity.getDescription());
+    public static ToDoEntity toEntity(ToDoDto toDoDto){
+        return new ToDoEntity(){{
+            setId(toDoDto.getId());
+            setName(toDoDto.getName());
+            setDescription(toDoDto.getDescription());
+        }};
+    }
+
+    public static ToDoDto toDto(ToDoEntity toDoEntity){
+        return new ToDoDto(){{
+            setId(toDoEntity.getId());
+            setName(toDoEntity.getName());
+            setDescription(toDoEntity.getDescription());
+        }};
     }
 }
