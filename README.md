@@ -2,6 +2,8 @@
 
 ### **to-do list**
 
+Java 11 version used.
+
 **Used technologies:**  
 * Java
 * Collections
