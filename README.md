@@ -2,7 +2,8 @@
 to-do list
 
 Used technologies:  Java, Collections, Spring boot, Spring data JPA,
-                    Spring validation, thymeleaf, lombok, MySql, Git
+                    Spring validation, thymeleaf, lombok,
+                    Spting boot test, JUnit, MySql, Git
 
 A pre-installed MySQL is required to run. 
 It is necessary to create an empty database.
